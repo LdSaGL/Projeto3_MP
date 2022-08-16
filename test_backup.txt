@@ -5,4 +5,24 @@ Passar nos testes implica que a função que extrai as informações do arquivo 
 
 Teste 2
 
-Passar nos testes implica que a funcao consegue fornecer o tempo correto quando o arquivo existe e também consegue dar um arquivo como inexistente quando ele não existe
+Passar nos testes implica que a função consegue fornecer o tempo correto quando o arquivo existe e também consegue dar um arquivo como inexistente quando ele não existe
+
+
+Teste 3
+
+1 - Passar nesse teste implica que a função consegue identificar quando o arquivo não existe nos diretorios analisados;
+2 - Passar nesse teste implica que a função realiza o backup quando o arquivo está apenas no diretorio 'HD';
+3 - Passar nesse teste implica que a função consegue identificar quando um backup seria prejudicial tendo em vista a data de criação dos arquivos;
+4 - Passar nesse teste implica que a função realiza o backup quando o arquivo do diretorio 'Pendrive' está ultrapassado;
+5 - Passar nesse teste implica que a função abarca o caso de quando não temos entrada sem apresentar erro;
+6 - Passar nesse teste implica que a função pode não fazer nada, conforme solicitado na tabela de decisão.
+
+
+Teste 4
+
+1 - Passar nesse teste implica que a função consegue identificar quando o arquivo não existe nos diretorios analisados;
+2 - Passar nesse teste implica que a função segue a tabela de decisão e apronta erro quando o arquivo está somente no diretorio HD;
+3 - Passar nesse teste implica que a função restaura um arquivo quando ele está presente apenas no diretorio Pendrive;
+4 - Passar nesse teste implica que a função faz a restauração se ambos os arquivos existem, mas a versao do Pendrive é mais recente;
+5 - Passar nesse teste implica que a função aponta erro se for solicitada uma restauração quando a versão do HD é mais recente;
+6 - Passar nesse teste implica que a função não apresenta inconsistência quando não há entrada. 
