@@ -1,3 +1,8 @@
 Teste 1
 
-Passar no teste implica que a função que extrai as informações do arquivo de intrução 'parm' está funcionando corretamente
+Passar nos testes implica que a função que extrai as informações do arquivo de intrução 'parm' está funcionando corretamente
+
+
+Teste 2
+
+Passar nos testes implica que a funcao consegue fornecer o tempo correto quando o arquivo existe e também consegue dar um arquivo como inexistente quando ele não existe
