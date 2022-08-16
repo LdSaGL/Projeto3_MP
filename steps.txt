@@ -1,0 +1,7 @@
+1 - informar o que tem que ser feito em quais arquivos
+    Para isso utilizarei o "backup_parm.txt"
+    Na primeira linha deverá estar escrito "backup" ou "restore", em que backup dignifica do HD para o Pendrive e restore o contrário.
+    As próximas linhas definirão quais arquivos passarão pelo processo mencionado anteriormente, deve-se colocar o nome dos arquivos.
+
+
+    

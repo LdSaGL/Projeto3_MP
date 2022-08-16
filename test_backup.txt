@@ -1,0 +1,3 @@
+Teste 1
+
+Passar no teste implica que a função que extrai as informações do arquivo de intrução 'parm' está funcionando corretamente
