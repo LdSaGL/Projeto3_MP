@@ -1,3 +1,4 @@
+from msilib.schema import Error
 import backup
 
 # 1 - Testa se a funcao consegue extrair efetivamente todas as informacoes do arquivo
