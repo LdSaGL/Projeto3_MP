@@ -1,0 +1,73 @@
+PS D:\Projetos\Projeto3_MP> git log
+commit e32b814ef3b310816c14fd3527e9287696334fdb (HEAD -> main, origin/main)
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Tue Aug 16 23:41:57 2022 -0300
+
+    Finalizacao
+
+commit 39af7b8c811689d120f61f8fb115b2cb6a9b61eb
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Tue Aug 16 23:32:22 2022 -0300
+
+    Documentacao e pontualidades
+
+commit 2422917b7784cf503df1c5c829d4fddee0960a49
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Tue Aug 16 23:01:26 2022 -0300
+
+    Passo a passo e como rodar
+
+commit 2de13153c63306d22a97dfe53c47630ee43ed9cd
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Tue Aug 16 22:56:31 2022 -0300
+
+    Assertivas, formatacao e parte funcional
+
+commit adfed158f228161b38d950574b5c60c611ab0545
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Tue Aug 16 18:41:54 2022 -0300
+
+    Tabela de decisao (backup e restore)
+
+commit c54fec56bd9a8ebf01a594d1edfc7c8589b60dfc
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 23:34:32 2022 -0300
+
+    Extracao das datas de modificacao
+
+commit 4f940afee349028ae37ad80c866a34ed160f78af
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 23:10:40 2022 -0300
+
+    Extracao das informacoes parm
+
+commit 45472b3a211afc4927b18e73b836b17317238a9a
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 23:10:34 2022 -0300
+
+    Extracao das informacoes parm
+
+commit 1af46c7dbc28f31cf4fd687199c2678769bf9aff
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 22:34:47 2022 -0300
+
+    Estrutura basica
+
+commit a6676417335037101778730e369c8a5f444da103
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 13:24:02 2022 -0300
+
+    Estrutura basica
+
+commit 2d89c0f78ba24c3c7ea83a01234c18f62114255c
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 11:11:43 2022 -0300
+
+    Teste
+
+commit c1f89277af70d4b1769a6a7af02d292ed91441f5
+Author: LdSaGL <lucas.sa.licio@gmail.com>
+Date:   Mon Aug 15 11:10:14 2022 -0300
+
+    teste
+(END)
