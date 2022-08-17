@@ -3,9 +3,15 @@ Este programa utiliza a tabela de decisao apresentada em sala para realizar um b
 restauracao
 """
 
+
 import os
 import shutil
 
+
+"""
+Assertivas de entrada
+'argumento' deve ser o nome do arquivo sem a extensao '.txt'
+"""
 def arquivos_analisados(argumento):
     """
     Extrai as informacoes contidas em cada linha de um arquivo
@@ -21,8 +27,19 @@ def arquivos_analisados(argumento):
             parm = file.readlines()
             parm = [line.rstrip() for line in parm]
     return parm
+"""
+Assertivas de saida
+E garantido que 'parm' e uma lista
+E garantido que parm sera vazia caso o arquivo nao exista
+"""
 
 
+"""
+Assertivas de entrada
+O len() do argumento deve ser maior que 0 
+'lista_arquivos' deve conter apenas nomes de arquivos sem a extensao '.txt'
+O diretorio deve ser o caminho ate a pasta com o projeto
+"""
 def extrator_tempo(lista_arquivos):
     """
     Recebe a lista com os arquivos em analise (retirados do arquivo parm), descobre e
@@ -35,14 +52,14 @@ def extrator_tempo(lista_arquivos):
     if len(lista_arquivos) == 1:
         arquivo = lista_arquivos[0]
         if os.path.isfile(f'HD/{arquivo}.txt'):
-            tempo1 = os.path.getmtime(f'D:/Projetos/Projeto3_MP/HD/{arquivo}.txt')
+            tempo1 = os.path.getmtime(f'{DIRETORIO}/HD/{arquivo}.txt')
             tempos[arquivo] = [tempo1]
         else:
             tempos[arquivo] = ['inexistente']
 
 
         if os.path.isfile(f'Pendrive/{arquivo}.txt'):
-            tempo2 = os.path.getmtime(f'D:/Projetos/Projeto3_MP/Pendrive/{arquivo}.txt')
+            tempo2 = os.path.getmtime(f'{DIRETORIO}/Pendrive/{arquivo}.txt')
             tempos[arquivo].append(tempo2)
         else:
             tempos[arquivo].append('inexistente')
@@ -50,20 +67,32 @@ def extrator_tempo(lista_arquivos):
     else:
         for termo in lista_arquivos:
             if os.path.isfile(f'HD/{termo}.txt'):
-                tempo1 = os.path.getmtime(f'D:/Projetos/Projeto3_MP/HD/{termo}.txt')
+                tempo1 = os.path.getmtime(f'{DIRETORIO}/HD/{termo}.txt')
                 tempos[termo] = [tempo1]
             else:
                 tempos[termo] = ['inexistente']
 
 
             if os.path.isfile(f'Pendrive/{termo}.txt'):
-                tempo2 = os.path.getmtime(f'D:/Projetos/Projeto3_MP/Pendrive/{termo}.txt')
+                tempo2 = os.path.getmtime(f'{DIRETORIO}/Pendrive/{termo}.txt')
                 tempos[termo].append(tempo2)
             else:
                 tempos[termo].append('inexistente')
     return tempos
+"""
+E garantido que a funcao retorna um dicionario 'tempos'
+E garantido que as chaves do dicionario sao os nomes dos arquivos contidos no parm
+E garantido que os valores de cada chave sao listas com dois termos
+E garantido que os termos sao um float ou a string 'inexistente'
+"""
 
 
+"""
+Assertivas de entrada
+'backup_parm[0]' deve ser 'backup'
+'lista_arquivos' deve conter todos os termos de 'backup_parm' excluindo o primeiro
+A funcao 'extrator_tempo(lista)' deve retornar um dict
+"""
 def backup(lista_arquivos):
     """
     E chamada quando a primeira linha do backup_parm for: 'backup'
@@ -87,8 +116,21 @@ def backup(lista_arquivos):
             elif tempos[i][0] < tempos[i][1]:
                 tarefa.append('Erro: o arquivo do Pendrive mais recente do que o do HD.')
     return tarefa
+"""
+Assertivas de saida
+E garantido que 'tarefa' e uma lista
+E garantido que, caso a acao seja nao fazer nada, nada sera adicionado
+E garantido que sera passado integralmente para a lista o respectivo erro ou o que deve
+ser feito com qual arquivo
+"""
 
 
+"""
+Assertivas de entrada
+'backup_parm[0]' deve ser 'backup'
+'lista_arquivos' deve conter todos os termos de 'backup_parm' excluindo o primeiro
+A funcao 'extrator_tempo(lista)' deve retornar um dict
+"""
 def restore(lista_arquivos):
     """
     E chamada quando a primeira linha do backup_parm for: 'restore'
@@ -114,3 +156,39 @@ def restore(lista_arquivos):
         elif tempos[j][0] < tempos[j][1]:
             tarefa.append(f'Fazer restauracao do: {j}')
     return tarefa
+"""
+Assertivas de saida
+E garantido que 'tarefa' e uma lista
+E garantido que, caso a acao seja nao fazer nada, nada sera adicionado
+E garantido que sera passado integralmente para a lista o respectivo erro ou o que deve
+ser feito com qual arquivo
+"""
+
+
+DIRETORIO = 'D:/Projetos/Projeto3_MP' #informar o diretorio onde a pasta do projeto esta localizada
+arquivos_parm = arquivos_analisados('backup_parm') #informar qual o nome do arquivo de instrucao
+
+"""
+Segmento do codigo que verifica se deve ser realizado um backup ou uma restauracao, chama as
+respectivas funcoes e realiza a copia do arquivo caso necessario
+"""
+if arquivos_parm[0] == 'backup':
+    lista_mensagens = backup(arquivos_parm[1:])
+    CONTADOR = 1
+    for item in lista_mensagens:
+        print(item)
+        if item == f'Fazer backup do: {arquivos_parm[CONTADOR]}':
+            shutil.copy2(f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt',
+            f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt')
+        CONTADOR += 1
+elif arquivos_parm[0] == 'restore':
+    lista_mensagens = restore(arquivos_parm[1:])
+    CONTADOR = 1
+    for item in lista_mensagens:
+        print(item)
+        if item == f'Fazer restauracao do: {arquivos_parm[CONTADOR]}':
+            shutil.copy2(f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt',
+            f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt')
+        CONTADOR += 1
+else:
+    print('Erro: nao foi seguido o padrao de construcao do arquivo de instrucao')

@@ -21,5 +21,5 @@
 Observação: a tabela de decisão foi implementada de uma vez, mas foi dividida em duas funções, logo o respectivo commit abarcará tanto os
 testes da função backup quanto da função restore.
 
-
+5 - Implementar a parte funcional do codigo, que deve chamar as funcoes e garantir que o codigo possa ser executado
     
