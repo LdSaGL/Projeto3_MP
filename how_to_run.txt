@@ -1,0 +1,10 @@
+Para rodar o arquivo, 
+
+Deve-se alterar o diretorio (informar onde a pasta do projeto esta localizada no PC)
+    Linha 168
+
+Deve-se: 
+    Editar o arquivo 'backup_parm.txt'
+
+    Ou trocar o arquivo de instrucao para outro qualquer
+    Linha 169 (trocar o argumento chamado pela funcao 'arquivos_analisados)

@@ -1,14 +1,14 @@
-1 - Informar o que tem que ser feito em quais arquivos
+1 - Informar o que tem que ser feito em quais arquivos:
     Para isso utilizarei o "backup_parm.txt";
     Na primeira linha deverá estar escrito "backup" ou "restore", em que backup dignifica do HD para o Pendrive e restore o contrário;
     As próximas linhas definirão quais arquivos passarão pelo processo mencionado anteriormente, deve-se colocar o nome dos arquivos.
 
-2 - Extrair a data da última modificação dos arquivos analisados
+2 - Extrair a data da última modificação dos arquivos analisados:
     Como a ideia é de que tanto a pasta HD quanto a pasta Pendrive possuam os mesmos arquivos, criarei um dicionario em que o a chave 
     será o nome do arquivo e o valor uma lista contendo a data de modificacao do arquivo na pasta HD e Pendrive, respectivamente;
     Caso o arquivo não exista em uma das pastas, o valor passado será: 'inexistente'.
 
-3 - Implementar a parte da tabela de decisão que aborda os casos em que 'faz backup' está verdadeira
+3 - Implementar a parte da tabela de decisão que aborda os casos em que 'faz backup' está verdadeira:
     A função receberá uma lista, chamará a função de extrair a última data de modificação dos arquivos e executará uma série de condicionais
     para verificar se os arquivos existem, se deve ser feito um backup ou apontado um erro.  Como podemos ter mais de um arquivo no input,
     a função retornará uma lista em ordem de execução de quais mensagens/comandos deverão ser seguidos.
