@@ -19,6 +19,7 @@ def arquivos_analisados(argumento):
     O foco principal e o arquivo "backup_parm.txt"
 
     :param argumento: str
+
     :return list parm (linhas de um arquivo)
     """
     parm = []
@@ -46,6 +47,7 @@ def extrator_tempo(lista_arquivos):
     armazena a ultima data de modificacao tanto na pasta HD quanto na Pendrive.
 
     :param lista_arquivos: list
+
     :return dict tempos (data de modificacao em 'HD' e 'Pendrive')
     """
     tempos = {}
@@ -101,6 +103,7 @@ def backup(lista_arquivos):
     (HD para Pendrive) e retorna se deve ser feito o backup.
 
     :param lista_arquivos: list
+
     :return list tarefas mensagem de erro ou solicitacao de backup
     """
     tempos = extrator_tempo(lista_arquivos)
@@ -140,6 +143,7 @@ def restore(lista_arquivos):
 
 
     :param lista_arquivos: list
+    
     :return list tarefas mensagem de erro ou solicitacao de reatauracao
     """
     tempos = extrator_tempo(lista_arquivos)
@@ -172,23 +176,26 @@ arquivos_parm = arquivos_analisados('backup_parm') #informar qual o nome do arqu
 Segmento do codigo que verifica se deve ser realizado um backup ou uma restauracao, chama as
 respectivas funcoes e realiza a copia do arquivo caso necessario
 """
-if arquivos_parm[0] == 'backup':
-    lista_mensagens = backup(arquivos_parm[1:])
-    CONTADOR = 1
-    for item in lista_mensagens:
-        print(item)
-        if item == f'Fazer backup do: {arquivos_parm[CONTADOR]}':
-            shutil.copy2(f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt',
-            f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt')
-        CONTADOR += 1
-elif arquivos_parm[0] == 'restore':
-    lista_mensagens = restore(arquivos_parm[1:])
-    CONTADOR = 1
-    for item in lista_mensagens:
-        print(item)
-        if item == f'Fazer restauracao do: {arquivos_parm[CONTADOR]}':
-            shutil.copy2(f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt',
-            f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt')
-        CONTADOR += 1
+if len(arquivos_parm) > 0:
+    if arquivos_parm[0] == 'backup':
+        lista_mensagens = backup(arquivos_parm[1:])
+        CONTADOR = 1
+        for item in lista_mensagens:
+            print(item)
+            if item == f'Fazer backup do: {arquivos_parm[CONTADOR]}':
+                shutil.copy2(f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt',
+                f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt')
+            CONTADOR += 1
+    elif arquivos_parm[0] == 'restore':
+        lista_mensagens = restore(arquivos_parm[1:])
+        CONTADOR = 1
+        for item in lista_mensagens:
+            print(item)
+            if item == f'Fazer restauracao do: {arquivos_parm[CONTADOR]}':
+                shutil.copy2(f'{DIRETORIO}/HD/{arquivos_parm[CONTADOR]}.txt',
+                f'{DIRETORIO}/Pendrive/{arquivos_parm[CONTADOR]}.txt')
+            CONTADOR += 1
+    else:
+        print('Erro: nao foi seguido o padrao de construcao do arquivo de instrucao')
 else:
-    print('Erro: nao foi seguido o padrao de construcao do arquivo de instrucao')
+    print('Erro: nao foi informado nada no arquivo de instrucao')
