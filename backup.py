@@ -143,7 +143,7 @@ def restore(lista_arquivos):
 
 
     :param lista_arquivos: list
-    
+
     :return list tarefas mensagem de erro ou solicitacao de reatauracao
     """
     tempos = extrator_tempo(lista_arquivos)

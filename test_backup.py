@@ -13,7 +13,7 @@ def testeParm2():
 # 2 - Testa se o data de modificacao obtida por meio da funcao condiz com a verdadeira
 
 def testeTempo1():
-    assert backup.extrator_tempo(['arquivo1', 'arquivo2', 'arquivo3']) == {'arquivo1': [1660614617.2689965, 1660614629.3149662], 'arquivo2': [1660616812.60954, 1660616807.5729384], 'arquivo3': ['inexistente', 1660616818.9820714]}
+    assert backup.extrator_tempo(['arquivo1', 'arquivo2', 'arquivo3']) == {'arquivo1': [1660614617.2689965, 1660614629.3149662], 'arquivo2': [1660616807.5729384, 1660616807.5729384], 'arquivo3': ['inexistente', 1660616818.9820714]}
 
 def testeTempo2():
     assert backup.extrator_tempo(['arq', 'arquivo1', 'sistemawin']) == {'arq': ['inexistente', 'inexistente'], 'arquivo1': [1660614617.2689965, 1660614629.3149662], 'sistemawin': ['inexistente', 'inexistente']}
@@ -34,7 +34,7 @@ def testeBackup3():
     assert backup.backup(['arquivo1']) == ['Erro: o arquivo do Pendrive mais recente do que o do HD.']
 
 def testeBackup4():
-    assert backup.backup(['arquivo2']) == ['Fazer backup do: arquivo2']
+    assert backup.backup(['arquivo2']) == []
 
 def testeBackup5():
     assert backup.backup([]) == []
@@ -58,7 +58,16 @@ def testeRestauracao4():
     assert backup.restore(['arquivo1']) == ['Fazer restauracao do: arquivo1']
 
 def testeRestauracao5():
-    assert backup.restore(['arquivo2']) == ['Erro: arquivo do HD mais recente do que o do Pendrive.']
+    assert backup.restore(['arquivo2']) == []
 
 def testeRestauracao6():
     assert backup.restore([]) == []
+
+
+# 5 - Testa a parte funcional do codigo
+
+def testeFuncional1():
+    assert backup.DIRETORIO == 'D:/Projetos/Projeto3_MP'
+
+def testeFuncional2():
+    assert backup.arquivos_parm == backup.arquivos_analisados('backup_parm')
